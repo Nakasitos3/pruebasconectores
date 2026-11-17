@@ -55,7 +55,7 @@ ru:{
  "k.doc.h":"Документы","k.doc.sub":"Фото или скан. Медицинские справки можно загрузить позже — пришлём напоминание.","k.attach":"Прикрепить","k.change":"Заменить","k.later":"можно позже","k.req":"обязательно",
  "k.d.birth":"Свидетельство о рождении","k.d.id1":"Удостоверение личности родителя 1","k.d.id2":"Удостоверение личности родителя 2","k.d.med":"Медицинская справка 027-У или 075-У","k.d.medetp":"Медицинский допуск и обследования (ЭхоКГ, ЭКГ, анализы)",
  "k.of.h":"Оферта и согласия","k.of.sub":"Прочитайте условия. Договор заключается акцептом публичной оферты (ст. 395–396 ГК РК).",
- "k.c1":"Я ознакомлен(а) и согласен(на) с <a href=\"offer.html\" target=\"_blank\" rel=\"noopener\">Публичной офертой</a>, правилами кампуса/секции и правилами возврата.","k.c2":"Подтверждаю отсутствие у ребёнка медицинских противопоказаний к физическим нагрузкам и достоверность данных о здоровье.","k.c3":"Даю согласие на сбор и обработку персональных данных моих и ребёнка согласно <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">Политике конфиденциальности</a>.","k.c4":"Согласен(на) на фото- и видеосъёмку ребёнка и использование материалов в медиа и рекламе Академии.","k.c4s":"Необязательно. Можно отозвать в любой момент.",
+ "k.c1":"Я ознакомлен(а) и согласен(на) с <a href=\"docs/oferta-ru.pdf\" target=\"_blank\" rel=\"noopener\" data-open-offer>Публичной офертой</a>, правилами кампуса/секции и правилами возврата.","k.pdf.btn":"Открыть оферту (PDF)","k.pdf.lock":"Сначала откройте и прочитайте оферту — после этого отметка станет доступна.","k.pdf.ok":"Оферта открыта {h}. Теперь можно поставить отметку.","k.pdf.sub":"13 страниц · редакция от 17.11.2026","k.c2":"Подтверждаю отсутствие у ребёнка медицинских противопоказаний к физическим нагрузкам и достоверность данных о здоровье.","k.c3":"Даю согласие на сбор и обработку персональных данных моих и ребёнка согласно <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">Политике конфиденциальности</a>.","k.c4":"Согласен(на) на фото- и видеосъёмку ребёнка и использование материалов в медиа и рекламе Академии.","k.c4s":"Необязательно. Можно отозвать в любой момент.",
  "k.sms.h":"Подпишите кодом","k.sms.sub":"Мы отправили код на {t}. Ввод кода равен вашей подписи под заявлением.","k.sms.demo":"Демо-код: 1234","k.sms.err":"Неверный код",
  "k.pay.h":"Оплата","k.pay.sub":"100% предоплата. Деньги поступают на расчётный счёт организации.","k.pay.box":"Безопасная оплата Halyk ePay","k.pay.note":"В рабочей версии здесь откроется защищённая страница банка: карта любого банка, Apple Pay, Google Pay или приложение Halyk. В демо оплата симулируется.","k.pay.btn":"Оплатить {p} ₸","k.pay.wait":"Обработка…",
  "k.ok.h":"Готово! Места ваши.","k.ok.sub":"Мы отправили договор и чек на {m}.","k.ok.doc":"Открыть договор","k.ok.next":["Договор и чек — на почте и в WhatsApp.","Загрузите медицинские справки до начала — пришлём напоминание.","За 3 дня до старта — памятка с тем, что взять с собой."],
@@ -95,7 +95,7 @@ en:{
  "k.doc.h":"Documents","k.doc.sub":"Photo or scan. Medical certificates can be uploaded later — we'll send a reminder.","k.attach":"Attach","k.change":"Replace","k.later":"can be later","k.req":"required",
  "k.d.birth":"Birth certificate","k.d.id1":"Parent 1 ID card","k.d.id2":"Parent 2 ID card","k.d.med":"Medical certificate 027-U or 075-U","k.d.medetp":"Medical clearance and tests (echo, ECG, blood work)",
  "k.of.h":"Offer and consents","k.of.sub":"Please read the terms. The contract is concluded by accepting the public offer (Arts. 395–396, Civil Code of Kazakhstan).",
- "k.c1":"I have read and accept the <a href=\"offer.html\" target=\"_blank\" rel=\"noopener\">Public offer</a>, the camp/section rules and the refund policy.","k.c2":"I confirm the child has no medical contraindications to physical exercise and that the health information is accurate.","k.c3":"I consent to the collection and processing of my and my child's personal data under the <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">Privacy policy</a>.","k.c4":"I agree to photos and video of my child being taken and used in the Academy's media and advertising.","k.c4s":"Optional. Can be withdrawn at any time.",
+ "k.c1":"I have read and accept the <a href=\"docs/oferta-en.pdf\" target=\"_blank\" rel=\"noopener\" data-open-offer>Public offer</a>, the camp/section rules and the refund policy.","k.pdf.btn":"Open the offer (PDF)","k.pdf.lock":"Open and read the offer first — then this box becomes available.","k.pdf.ok":"Offer opened at {h}. You can now tick the box.","k.pdf.sub":"13 pages · version of 17 Nov 2026","k.c2":"I confirm the child has no medical contraindications to physical exercise and that the health information is accurate.","k.c3":"I consent to the collection and processing of my and my child's personal data under the <a href=\"privacy.html\" target=\"_blank\" rel=\"noopener\">Privacy policy</a>.","k.c4":"I agree to photos and video of my child being taken and used in the Academy's media and advertising.","k.c4s":"Optional. Can be withdrawn at any time.",
  "k.sms.h":"Sign with a code","k.sms.sub":"We sent a code to {t}. Entering it is your signature on the application.","k.sms.demo":"Demo code: 1234","k.sms.err":"Wrong code",
  "k.pay.h":"Payment","k.pay.sub":"100% prepayment to the organisation's bank account.","k.pay.box":"Secure payment by Halyk ePay","k.pay.note":"In the live version the bank's secure page opens here: any bank card, Apple Pay, Google Pay or the Halyk app. In the demo the payment is simulated.","k.pay.btn":"Pay {p} ₸","k.pay.wait":"Processing…",
  "k.ok.h":"Done! The places are yours.","k.ok.sub":"We've sent the contract and receipt to {m}.","k.ok.doc":"Open contract","k.ok.next":["Contract and receipt — by email and WhatsApp.","Upload the medical certificates before the start — we'll remind you.","3 days before the start — a checklist of what to bring."],
@@ -280,13 +280,18 @@ function renderStep(){
   }
   else if(step===4){
     var hasC=cart.some(function(c){return c.type==="campus"}),hasE=cart.some(function(c){return c.type==="etp"});
-    h='<h3 class="cond paso-h">'+t("k.of.h")+'</h3><p class="paso-sub">'+t("k.of.sub")+'</p><div class="oferta" tabindex="0">'+offerSummary(hasC,hasE)+'</div>';
+    var op=form.cons.offerOpened;
+    h='<h3 class="cond paso-h">'+t("k.of.h")+'</h3><p class="paso-sub">'+t("k.of.sub")+'</p>'+
+      '<a class="pdf-card'+(op?' visto':'')+'" href="docs/oferta-'+lang+'.pdf" target="_blank" rel="noopener" data-open-offer><span class="pdf-ico" aria-hidden="true">PDF</span><span class="t"><b>'+t("k.pdf.btn")+'</b><span>'+t("k.pdf.sub")+'</span></span><span class="pdf-est">'+(op?'✓':'↗')+'</span></a>'+
+      '<p class="pdf-msg'+(op?' ok':'')+'" id="pdf-msg">'+(op?t("k.pdf.ok",{h:new Date(op).toLocaleTimeString(lang==="ru"?"ru-RU":"en-GB",{hour:"2-digit",minute:"2-digit"})}):t("k.pdf.lock"))+'</p>'+
+      '<div class="oferta" tabindex="0">'+offerSummary(hasC,hasE)+'</div>';
     [["c1",1],["c2",1],["c3",1],["c4",0]].forEach(function(c){
-      h+='<label class="check" data-chk="'+c[0]+'"><input type="checkbox" id="'+c[0]+'"'+(form.cons[c[0]]?' checked':'')+'><span>'+t("k."+c[0])+(c[1]?'':'<small>'+t("k.c4s")+'</small>')+'</span></label>';
+      h+='<label class="check'+(c[0]==="c1"&&!op?' bloq':'')+'" data-chk="'+c[0]+'"><input type="checkbox" id="'+c[0]+'"'+(form.cons[c[0]]?' checked':'')+(c[0]==="c1"&&!op?' disabled':'')+'><span>'+t("k."+c[0])+(c[1]?'':'<small>'+t("k.c4s")+'</small>')+'</span></label>';
     });
     h+='<div class="msg-err" id="err-chk"></div>';
     body.innerHTML=h;pie.innerHTML=nav();
     $$('.check input',body).forEach(function(i){i.addEventListener("change",function(){form.cons[i.id]=i.checked;saveForm()})});
+    $$('[data-open-offer]',body).forEach(function(a){a.addEventListener("click",function(){if(!form.cons.offerOpened){form.cons.offerOpened=new Date().toISOString();form.cons.offerLang=lang;saveForm();setTimeout(renderStep,300)}})});
   }
   else if(step===5){
     h='<h3 class="cond paso-h">'+t("k.sms.h")+'</h3><p class="paso-sub">'+t("k.sms.sub",{t:esc(form.par.tel||"")})+'</p><div class="sms">'+[0,1,2,3].map(function(i){return '<input inputmode="numeric" maxlength="1" aria-label="'+(i+1)+'" data-sms="'+i+'">'}).join("")+'</div><span class="pista">'+t("k.sms.demo")+'</span><div class="msg-err" id="err-sms"></div>';
@@ -359,7 +364,7 @@ function pay(){
   var cnt=S.get("ka_cnt",{c:10,e:71});var now=new Date().toISOString();var made=[];
   cart.forEach(function(it){
     var num=it.type==="campus"?("АФОЛ27-"+(++cnt.c)):("АФ27/ETP-"+(++cnt.e));
-    var o={num:num,type:it.type,opt:it.opt,start:it.start||null,name:itemName(it),sub:itemSub(it),price:itemPrice(it),kid:it.kid,par:form.par,photo:!!form.cons.c4,date:now,paid:true,med:!!form.files[it.uid+"-med"],
+    var o={num:num,type:it.type,opt:it.opt,start:it.start||null,name:itemName(it),sub:itemSub(it),price:itemPrice(it),kid:it.kid,par:form.par,photo:!!form.cons.c4,date:now,offerOpened:form.cons.offerOpened||null,offerLang:form.cons.offerLang||lang,paid:true,med:!!form.files[it.uid+"-med"],
       files:["birth","id1","id2","med"].filter(function(k){return form.files[it.uid+"-"+k]})};
     orders.push(o);made.push(o);
   });
@@ -401,7 +406,7 @@ function openDoc(num){
   h+='<h2>4. Акцепт и согласия</h2><p>Заказчик подтверждает ознакомление и согласие с Публичной офертой, правилами и порядком возврата; отсутствие медицинских противопоказаний у ребёнка; согласие на обработку персональных данных. Согласие на фото-/видеосъёмку: '+(o.photo?"дано":"не дано")+'.</p>'+
     '<table><tr><td><b>ОРГАНИЗАЦИЯ</b><br>ОО «SPORT ASSET MANAGEMENT»<br>БИН 121240005887<br>АО «Народный Банк Казахстана», БИК HSBKKZKA<br>Фактический адрес: Алматинская обл., Талгарский р-н, с. Береке<br>office@samgt.kz · +7 700 171 2222</td>'+
     '<td><b>ЗАКАЗЧИК</b><br>'+esc(o.par.fio)+'<br>ИИН '+esc(o.par.iin)+'<br>'+esc(o.par.addr)+'<br>'+esc(o.par.tel)+' · '+esc(o.par.mail)+'</td></tr></table>'+
-    '<div class="sello">Подписано простой электронной подписью (код SMS на '+esc(o.par.tel)+') · '+d.toLocaleString("ru-RU")+'<br>Оплата получена: '+nfRu(o.price)+' ₸ · Halyk ePay (демо) · документ сформирован автоматически</div></div>';
+    '<div class="sello">Публичная оферта (PDF, редакция от 17.11.2026, '+(o.offerLang==="en"?"англ. перевод":"рус.")+') открыта Заказчиком: '+(o.offerOpened?new Date(o.offerOpened).toLocaleString("ru-RU"):"—")+'<br>Подписано простой электронной подписью (код SMS на '+esc(o.par.tel)+') · '+d.toLocaleString("ru-RU")+'<br>Оплата получена: '+nfRu(o.price)+' ₸ · Halyk ePay (демо) · документ сформирован автоматически</div></div>';
   $("#doc").innerHTML=h;openLayer($("#capa-doc"));
 }
 function fdRu(iso){return new Date(iso+"T00:00:00").toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"})}
@@ -426,8 +431,8 @@ function renderPanel(){
   $("#p-reset").addEventListener("click",function(){orders=[];S.set("ka_orders",[]);S.set("ka_cnt",{c:10,e:71});renderPanel();renderShifts()});
 }
 function csv(){
-  var rows=[["Номер","Программа","Ребёнок","Дата рождения","ИИН ребёнка","Представитель","ИИН представителя","Телефон","Email","Сумма","Оплата","Фото-согласие","Дата"]];
-  orders.forEach(function(o){rows.push([o.num,o.name,o.kid.fio,o.kid.dob,o.kid.iin,o.par.fio,o.par.iin,o.par.tel,o.par.mail,o.price,"Оплачено",o.photo?"Да":"Нет",o.date])});
+  var rows=[["Номер","Программа","Ребёнок","Дата рождения","ИИН ребёнка","Представитель","ИИН представителя","Телефон","Email","Сумма","Оплата","Фото-согласие","Оферта открыта","Дата"]];
+  orders.forEach(function(o){rows.push([o.num,o.name,o.kid.fio,o.kid.dob,o.kid.iin,o.par.fio,o.par.iin,o.par.tel,o.par.mail,o.price,"Оплачено",o.photo?"Да":"Нет",o.offerOpened||"",o.date])});
   var txt="﻿"+rows.map(function(r){return r.map(function(c){return '"'+String(c).replace(/"/g,'""')+'"'}).join(";")}).join("\r\n");
   var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"text/csv;charset=utf-8"}));a.download="zayavki_demo.csv";document.body.appendChild(a);a.click();a.remove();
 }

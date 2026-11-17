@@ -20,3 +20,4 @@ article{display:none}
 article:target,article.on{display:block}
 a{color:#282A6F}
 @media print{.top,.aviso{display:none}article{display:block!important}}
+.pdfbtn{display:inline-block;background:#282A6F;color:#fff!important;text-decoration:none;border-radius:999px;padding:11px 22px;font-weight:600;margin-bottom:10px}

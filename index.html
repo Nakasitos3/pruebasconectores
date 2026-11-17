@@ -234,6 +234,15 @@ legend{font-weight:650;font-size:18px;margin-bottom:12px}
 .check input{width:22px;height:22px;accent-color:var(--azul);flex:0 0 auto;margin-top:1px}
 .check small{display:block;color:var(--texto2);font-size:13px}
 .check.err{color:var(--rojo)}
+.check.bloq{opacity:.5;cursor:not-allowed}
+.pdf-card{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:18px;background:var(--azul);color:#fff;margin-bottom:10px;transition:background .2s}
+.pdf-card:hover{background:var(--azul-sub)}
+.pdf-card.visto{background:#eaf4ec;color:var(--azul)}
+.pdf-ico{width:46px;height:56px;border-radius:8px;background:var(--rojo);color:#fff;font-weight:800;font-size:13px;display:grid;place-items:center;flex:0 0 auto}
+.pdf-card .t{flex:1}.pdf-card b{display:block;font-size:17px;font-weight:650}.pdf-card .t span{font-size:13px;opacity:.8}
+.pdf-est{font-size:22px;font-weight:700}
+.pdf-msg{font-size:14px;color:#8a5a00;background:#fdf0dc;border-radius:12px;padding:10px 14px;margin-bottom:16px}
+.pdf-msg.ok{color:#1e6b33;background:#e3f1e5}
 .sms{display:flex;gap:10px;margin:18px 0 12px}
 .sms input{width:58px;height:66px;text-align:center;font-size:28px;font-weight:700;border-radius:14px;border:1.5px solid var(--linea);color:var(--azul);font-family:inherit}
 .sms input:focus{outline:none;border-color:var(--azul)}
@@ -491,6 +500,6 @@ td button{text-decoration:underline;text-underline-offset:3px;font-size:14px}
   </div>
 </div>
 
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>
