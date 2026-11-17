@@ -43,7 +43,11 @@ nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.72);backdrop-filter:
 .player{position:absolute;left:50%;bottom:0;height:100%;transform:translateX(-50%);
  -webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent 100%);mask-image:linear-gradient(to bottom,#000 70%,transparent 100%);
  opacity:0;animation:rise 1.4s .7s cubic-bezier(.2,.8,.2,1) forwards}
-.player img{height:100%;width:auto;display:block;animation:float 6s 2.2s ease-in-out infinite}
+.player{perspective:1600px}
+.player img{height:100%;width:auto;display:block;transform-origin:50% 50%;animation:turn 9s 2s ease-in-out infinite;filter:drop-shadow(0 40px 50px rgba(0,0,0,.7)) drop-shadow(0 0 30px rgba(44,45,110,.5));will-change:transform}
+.floor{position:absolute;left:50%;bottom:6%;width:340px;height:50px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(0,0,0,.75),transparent 70%);animation:floor 9s 2s ease-in-out infinite;pointer-events:none}
+@keyframes turn{0%,100%{transform:rotateY(-32deg) translateY(0)}50%{transform:rotateY(32deg) translateY(-12px)}}
+@keyframes floor{0%,100%{transform:translateX(-56%) scaleX(.9)}50%{transform:translateX(-44%) scaleX(.9)}}
 .strip{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;gap:14px;align-items:center;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:12px 26px;border-radius:999px;font-size:15px;white-space:nowrap;border:1px solid rgba(255,255,255,.08)}
 .strip i{color:var(--red);font-style:normal}
 @media(max-width:640px){.strip{font-size:12px;gap:8px;padding:10px 16px}}
@@ -105,7 +109,8 @@ footer{text-align:center;color:#6e6e73;font-size:12px;padding:30px 22px 40px;bor
   <div class="stage">
     <div class="glow"></div>
     <div class="metal" aria-hidden="true">MADRID</div>
-    <div class="player"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_062209_fdac86c8-d07c-4cb4-a54f-46810e9fe3db.png" alt="Jugador de la Kazakhstan Academy con el balón"></div>
+    <div class="floor"></div>
+    <div class="player"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_062921_a0df6a39-d92a-401f-ba35-f424c1333b49.png" alt="Jugador de la Kazakhstan Academy con el balón"></div>
     <div class="strip">7 días <i>·</i> Entrenamientos <i>·</i> Visita al estadio <i>·</i> Madrid</div>
   </div>
 </header>
