@@ -41,7 +41,7 @@ ru:{
  "t.h3":"Ближайшие смены","t.left":"Осталось мест: {n} из {c}","t.full":"Мест нет","t.add":"В корзину","t.added":"В корзине",
  "eb.p":"Групповые тренировки в Алматы для детей, которые только начинают.",
  "ei1.b":"Где","ei1.s":"Алматы, ул. Абая 8в, здание КазНАИУ","ei2.b":"Когда","ei2.s":"Вторник и четверг, 18:00","ei3.b":"Медицина","ei3.s":"Допуск врача и обследования в первую неделю",
- "pl.h3":"Абонемент на 3 месяца","pl.month":"{p} ₸ в месяц","pl.tot":"{p} ₸ за 3 месяца (90 дней)","pl.add":"В корзину","pl.pop":"Популярный",
+ "pl.h3":"Абонемент на 3 месяца","pl.month":"{p} ₸ в месяц","pl.tot":"{p} ₸ за 3 месяца (90 дней)","pl.add":"В корзину","pl.pop":"Спецпредложение",
  "ci.h2":"Место ждёт.","ci.p":"Оформление занимает пять минут. Договор и чек придут на почту сразу после оплаты.",
  "f.dir":"Алматинская обл., Талгарский р-н, с. Береке","f.offer":"Публичная оферта","f.priv":"Политика конфиденциальности","f.panel":"Панель академии (демо)",
  "pa.t":"Панель академии","doc.t":"Документ","doc.nota":"Демо: в рабочей версии PDF приходит на почту автоматически.","doc.print":"Скачать / печать",
@@ -81,7 +81,7 @@ en:{
  "t.h3":"Upcoming sessions","t.left":"{n} of {c} places left","t.full":"Sold out","t.add":"Add to cart","t.added":"In cart",
  "eb.p":"Group training in Almaty for children who are just starting out.",
  "ei1.b":"Where","ei1.s":"Almaty, 8v Abay Ave, KazNAIU building","ei2.b":"When","ei2.s":"Tuesday and Thursday, 6 pm","ei3.b":"Medical","ei3.s":"Doctor's clearance and tests in the first week",
- "pl.h3":"3-month pass","pl.month":"{p} ₸ a month","pl.tot":"{p} ₸ for 3 months (90 days)","pl.add":"Add to cart","pl.pop":"Popular",
+ "pl.h3":"3-month pass","pl.month":"{p} ₸ a month","pl.tot":"{p} ₸ for 3 months (90 days)","pl.add":"Add to cart","pl.pop":"Special offer",
  "ci.h2":"Your place is waiting.","ci.p":"It takes five minutes. The contract and receipt arrive by email right after payment.",
  "f.dir":"Almaty region, Talgar district, Bereke village","f.offer":"Public offer","f.priv":"Privacy policy","f.panel":"Academy dashboard (demo)",
  "pa.t":"Academy dashboard","doc.t":"Document","doc.nota":"Demo: in the live version the PDF is emailed automatically. Legal documents are issued in Russian.","doc.print":"Download / print",
@@ -154,7 +154,7 @@ function renderPlans(){
   var box=$("#planes");if(!box)return;
   box.innerHTML=PLANS.map(function(p){
     var opts=ETP_STARTS.map(function(s){return '<option value="'+s.id+'">'+esc(s[lang])+'</option>'}).join("");
-    return '<div class="plan'+(p.dest?' dest':'')+'">'+(p.dest?'<span class="chip" style="background:var(--azul);color:#fff;margin:0;align-self:flex-start">'+t("pl.pop")+'</span>':'')+
+    return '<div class="plan'+(p.dest?' dest':'')+'">'+(p.dest?'<span class="chip" style="background:var(--rojo);color:#fff;margin:0;align-self:flex-start">'+t("pl.pop")+'</span>':'')+
       '<h4>'+esc(p[lang])+'</h4><div class="p3">'+nf(p.total)+' ₸<small>'+t("pl.month",{p:nf(p.month)})+' · '+t("pl.tot",{p:nf(p.total)})+'</small></div>'+
       '<label style="font-size:14px;font-weight:600;display:grid;gap:6px">'+t("k.start")+'<select data-start="'+p.id+'" style="height:46px;border-radius:12px;border:1.5px solid var(--linea);padding:0 12px;font:inherit;font-size:16px;color:var(--azul);background:#fff">'+opts+'</select></label>'+
       '<button class="btn btn-azul" type="button" data-add-etp="'+p.id+'">'+t("pl.add")+'</button></div>';
