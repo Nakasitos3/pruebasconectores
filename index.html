@@ -59,8 +59,9 @@ nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.88);backdrop-f
 .metal{position:absolute;left:50%;top:16%;transform:translateX(-50%);font-stretch:62%;font-weight:900;font-size:clamp(150px,30vw,420px);line-height:.85;letter-spacing:-.015em;white-space:nowrap;
   background:linear-gradient(105deg,#22265B 0%,#5a5d9e 14%,#d9dae6 26%,#282A6F 40%,#8E9090 52%,#eef0f6 62%,#3a3d85 76%,#22265B 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
 .floor{position:absolute;left:50%;bottom:4%;width:380px;height:56px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(34,38,91,.28),transparent 70%);pointer-events:none}
-.player{position:absolute;left:50%;bottom:10px;height:100%;aspect-ratio:3/4;transform:translateX(-50%);-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%),linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 80%,transparent 100%),linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);mask-composite:intersect}
+.player{position:absolute;left:50%;bottom:10px;height:108%;aspect-ratio:1/1;transform:translateX(-50%);-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%),linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 80%,transparent 100%),linear-gradient(to right,transparent 0,#000 7%,#000 93%,transparent 100%);mask-composite:intersect}
 .player .clip,.player .still{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:bottom}
+.player .still{filter:url(#croma)}
 .player .clip{filter:url(#croma);opacity:0;transition:opacity .6s;clip-path:inset(0 1px)}
 .player.listo .clip{opacity:1}.player.listo .still{opacity:0;transition:opacity .6s}
 .hero-crest,.hero h1,.hero .sub,.hero .btns{opacity:0;animation:entra .9s cubic-bezier(.2,.8,.2,1) forwards}
@@ -335,7 +336,7 @@ td button{text-decoration:underline;text-underline-offset:3px;font-size:14px}
     <div class="metal" aria-hidden="true">TALGAR</div>
     <div class="floor"></div>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="croma" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 0.97 0 0 0.01  0 0 1 0 0  1.7 -1.7 1.7 0 0.9"/><feComponentTransfer><feFuncA type="linear" slope="1.6" intercept="-0.3"/></feComponentTransfer></filter></svg>
-    <div class="player"><video class="clip" autoplay muted loop playsinline preload="auto" aria-label="Игрок академии с мячом" src="https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_065031_60a45088-23ef-49e4-816f-785289d8c912.mp4"></video><img class="still" src="https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_062921_a0df6a39-d92a-401f-ba35-f424c1333b49.png" alt="Игрок академии в красно-белой форме с мячом"></div>
+    <div class="player"><video class="clip" autoplay muted loop playsinline preload="auto" aria-label="Игрок академии с мячом" src="https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_105657_31291d61-c868-44b8-9827-5581845a3699.mp4"></video><img class="still" src="https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_105544_f2c74e40-ba6f-4819-af05-77747213edcf.png" alt="Игрок академии в красно-белой форме с мячом"></div>
   </div>
 </header>
 
