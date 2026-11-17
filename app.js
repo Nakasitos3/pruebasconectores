@@ -60,7 +60,7 @@ ru:{
  "k.pay.h":"Оплата","k.pay.sub":"100% предоплата. Деньги поступают на расчётный счёт организации.","k.pay.box":"Безопасная оплата Halyk ePay","k.pay.note":"В рабочей версии здесь откроется защищённая страница банка: карта любого банка, Apple Pay, Google Pay или приложение Halyk. В демо оплата симулируется.","k.pay.btn":"Оплатить {p} ₸","k.pay.wait":"Обработка…",
  "k.ok.h":"Готово! Места ваши.","k.ok.sub":"Мы отправили договор и чек на {m}.","k.ok.doc":"Открыть договор","k.ok.next":["Договор и чек — на почте и в WhatsApp.","Загрузите медицинские справки до начала — пришлём напоминание.","За 3 дня до старта — памятка с тем, что взять с собой."],
  "k.fill":"Заполнить тестовыми данными","k.fillf":"Прикрепить тестовые файлы",
- "v.req":"Заполните поле","v.iin":"ИИН — 12 цифр, проверьте номер","v.tel":"Формат: +7 7XX XXX XX XX","v.mail":"Проверьте email","v.age":"Возраст для программы: {a}–{b} лет","v.chk":"Отметьте обязательные согласия","v.docs":"Прикрепите обязательные документы","v.rep":"Подтвердите, что вы законный представитель",
+ "v.req":"Заполните поле","v.iin":"Похоже, ИИН неверный — в демо можно продолжить","v.tel":"Формат: +7 7XX XXX XX XX","v.mail":"Проверьте email","v.age":"Возраст для программы: {a}–{b} лет","v.chk":"Отметьте обязательные согласия","v.docs":"Прикрепите обязательные документы","v.rep":"Подтвердите, что вы законный представитель",
  "p.orders":"Заказы","p.rev":"Оплачено","p.campus":"Свободно в кампусах","p.etp":"Абонементы ETP","p.occ":"Заполняемость смен","p.list":"Заявки","p.none":"Пока нет заявок. Оформите покупку на сайте — она появится здесь сразу после оплаты.",
  "p.th":["№ документа","Программа","Ребёнок","Представитель","Телефон","Сумма","Оплата","Справка","Документ"],"p.paid":"Оплачено","p.wait":"Ожидается","p.open":"Открыть","p.csv":"Экспорт в Excel (CSV)","p.reset":"Очистить демо",
  "p.note":"Демо: заявки хранятся только в этом браузере. В рабочей версии — в CRM академии на сервере в Казахстане, с уведомлением менеджеру."
@@ -100,7 +100,7 @@ en:{
  "k.pay.h":"Payment","k.pay.sub":"100% prepayment to the organisation's bank account.","k.pay.box":"Secure payment by Halyk ePay","k.pay.note":"In the live version the bank's secure page opens here: any bank card, Apple Pay, Google Pay or the Halyk app. In the demo the payment is simulated.","k.pay.btn":"Pay {p} ₸","k.pay.wait":"Processing…",
  "k.ok.h":"Done! The places are yours.","k.ok.sub":"We've sent the contract and receipt to {m}.","k.ok.doc":"Open contract","k.ok.next":["Contract and receipt — by email and WhatsApp.","Upload the medical certificates before the start — we'll remind you.","3 days before the start — a checklist of what to bring."],
  "k.fill":"Fill with test data","k.fillf":"Attach test files",
- "v.req":"Required","v.iin":"An IIN has 12 digits, please check","v.tel":"Format: +7 7XX XXX XX XX","v.mail":"Check the email","v.age":"Age for this programme: {a}–{b}","v.chk":"Tick the required consents","v.docs":"Attach the required documents","v.rep":"Confirm you are the legal representative",
+ "v.req":"Required","v.iin":"This IIN looks wrong — you can continue in the demo","v.tel":"Format: +7 7XX XXX XX XX","v.mail":"Check the email","v.age":"Age for this programme: {a}–{b}","v.chk":"Tick the required consents","v.docs":"Attach the required documents","v.rep":"Confirm you are the legal representative",
  "p.orders":"Orders","p.rev":"Paid","p.campus":"Camp places left","p.etp":"ETP passes","p.occ":"Session occupancy","p.list":"Applications","p.none":"No applications yet. Make a purchase on the site — it shows up here right after payment.",
  "p.th":["Document no.","Programme","Child","Guardian","Phone","Amount","Payment","Medical","Document"],"p.paid":"Paid","p.wait":"Pending","p.open":"Open","p.csv":"Export to Excel (CSV)","p.reset":"Clear demo",
  "p.note":"Demo: applications are stored only in this browser. In the live version they go to the academy CRM on a server in Kazakhstan, with a notification to a manager."
@@ -214,7 +214,7 @@ function refDate(it){if(it.type==="campus")return SHIFTS.filter(function(x){retu
 function campo(id,label,val,type,extra){
   return '<div class="campo'+(extra&&extra.ancho?' ancho':'')+'" data-campo="'+id+'"><label for="'+id+'">'+label+'</label><input id="'+id+'" name="'+id+'" type="'+(type||"text")+'" value="'+esc(val||"")+'"'+(extra&&extra.attrs?' '+extra.attrs:'')+'><span class="msg" aria-live="polite"></span></div>';
 }
-function setErr(id,msg){var c=$('[data-campo="'+id+'"]');if(!c)return;c.classList.toggle("err",!!msg);c.querySelector(".msg").textContent=msg||""}
+function setErr(id,msg,warn){var c=$('[data-campo="'+id+'"]');if(!c)return;c.classList.toggle("err",!!msg&&!warn);c.classList.toggle("warn",!!msg&&!!warn);c.querySelector(".msg").textContent=msg||""}
 
 function renderStep(){
   var steps=t("k.steps"),n=steps.length;
@@ -326,16 +326,16 @@ function validate(){
   if(step===1){
     var p=form.par;
     [["fio",p.fio],["idn",p.idn],["addr",p.addr]].forEach(function(f){var e=f[1]?"":t("v.req");setErr("p-"+f[0],e);if(e)ok=false});
-    var ei=!p.iin?t("v.req"):(iinValid(p.iin)?"":t("v.iin"));setErr("p-iin",ei);if(ei)ok=false;
-    var tel=(p.tel||"").replace(/\D/g,"");var et=!p.tel?t("v.req"):(/^[78]7\d{9}$/.test(tel)?"":t("v.tel"));setErr("p-tel",et);if(et)ok=false;
-    var em=!p.mail?t("v.req"):(/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(p.mail)?"":t("v.mail"));setErr("p-mail",em);if(em)ok=false;
+    if(!p.iin){setErr("p-iin",t("v.req"));ok=false}else setErr("p-iin",iinValid(p.iin)?"":t("v.iin"),1);
+    var tel=(p.tel||"").replace(/\D/g,"");if(!p.tel){setErr("p-tel",t("v.req"));ok=false}else setErr("p-tel",/^[78]7\d{9}$/.test(tel)?"":t("v.tel"),1);
+    if(!p.mail){setErr("p-mail",t("v.req"));ok=false}else setErr("p-mail",/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(p.mail)?"":t("v.mail"),1);
     $("#err-rep").textContent=p.rep?"":t("v.rep");if(!p.rep)ok=false;
   }
   if(step===2){
     cart.forEach(function(it,i){var k=it.kid||{};
       var e1=k.fio?"":t("v.req");setErr("k"+i+"-fio",e1);if(e1)ok=false;
-      var e2="";if(!k.dob)e2=t("v.req");else{var a=ageAt(k.dob,refDate(it)),r=AGE[it.type];if(a<r[0]||a>r[1])e2=t("v.age",{a:r[0],b:r[1]})}setErr("k"+i+"-dob",e2);if(e2)ok=false;
-      var e3=!k.iin?t("v.req"):(iinValid(k.iin)?"":t("v.iin"));setErr("k"+i+"-iin",e3);if(e3)ok=false;
+      if(!k.dob){setErr("k"+i+"-dob",t("v.req"));ok=false}else{var a=ageAt(k.dob,refDate(it)),r=AGE[it.type];setErr("k"+i+"-dob",(a<r[0]||a>r[1])?t("v.age",{a:r[0],b:r[1]}):"",1)}
+      if(!k.iin){setErr("k"+i+"-iin",t("v.req"));ok=false}else setErr("k"+i+"-iin",iinValid(k.iin)?"":t("v.iin"),1);
     });
   }
   if(step===3){
