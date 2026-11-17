@@ -65,8 +65,8 @@ nav{position:sticky;top:0;z-index:50;background:rgba(17,18,17,.78);backdrop-filt
 @keyframes entra{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes aparece{to{opacity:1}}
 @keyframes sube{from{opacity:0;transform:translate(-50%,70px)}to{opacity:1;transform:translate(-50%,0)}}
-@keyframes gira{0%,100%{transform:rotateY(-35deg) translateY(0)}50%{transform:rotateY(35deg) translateY(-12px)}}
-@keyframes sombra{0%,100%{transform:translateX(-57%) scaleX(.85)}50%{transform:translateX(-43%) scaleX(.85)}}
+@keyframes gira{0%,100%{transform:rotateY(-12deg) translateY(0)}50%{transform:rotateY(12deg) translateY(-8px)}}
+@keyframes sombra{0%,100%{transform:translateX(-53%) scaleX(.9)}50%{transform:translateX(-47%) scaleX(.9)}}
 @keyframes brillo{from{background-position:0% 0}to{background-position:260% 0}}
 
 /* experiencia */
@@ -168,21 +168,6 @@ footer{text-align:center;color:var(--plata);font-size:13px;padding:28px 24px 40p
 
 <footer>© 2026 Kazakhstan Academy</footer>
 
-<script>
-(function(){
-  var rig=document.querySelector('.rig'),front=rig.querySelector('img.front');
-  var small=matchMedia('(max-width:640px)').matches;
-  var N=small?10:22,DEPTH=small?18:34;
-  for(var i=1;i<=N;i++){
-    var l=front.cloneNode();l.className='layer';l.alt='';l.setAttribute('aria-hidden','true');
-    var t=i/N;l.style.transform='translateZ('+(-t*DEPTH).toFixed(1)+'px)';
-    l.style.filter='brightness('+(0.42-0.25*t).toFixed(2)+') saturate(.6)';
-    rig.insertBefore(l,front);
-  }
-  var back=front.cloneNode();back.className='layer';back.alt='';back.setAttribute('aria-hidden','true');
-  back.style.transform='translateZ('+(-DEPTH)+'px) rotateY(180deg)';back.style.filter='brightness(.12)';
-  rig.insertBefore(back,rig.firstChild);
-})();
-</script>
+
 </body>
 </html>
