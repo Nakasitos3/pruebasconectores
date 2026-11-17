@@ -326,7 +326,7 @@ function validate(){
   if(step===1){
     var p=form.par;
     [["fio",p.fio],["idn",p.idn],["addr",p.addr]].forEach(function(f){var e=f[1]?"":t("v.req");setErr("p-"+f[0],e);if(e)ok=false});
-    if(!p.iin){setErr("p-iin",t("v.req"));ok=false}else setErr("p-iin",iinValid(p.iin)?"":t("v.iin"),1);
+    setErr("p-iin",iinValid(p.iin||"")?"":t("v.iin"),1);
     var tel=(p.tel||"").replace(/\D/g,"");if(!p.tel){setErr("p-tel",t("v.req"));ok=false}else setErr("p-tel",/^[78]7\d{9}$/.test(tel)?"":t("v.tel"),1);
     if(!p.mail){setErr("p-mail",t("v.req"));ok=false}else setErr("p-mail",/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(p.mail)?"":t("v.mail"),1);
     $("#err-rep").textContent=p.rep?"":t("v.rep");if(!p.rep)ok=false;
@@ -335,7 +335,7 @@ function validate(){
     cart.forEach(function(it,i){var k=it.kid||{};
       var e1=k.fio?"":t("v.req");setErr("k"+i+"-fio",e1);if(e1)ok=false;
       if(!k.dob){setErr("k"+i+"-dob",t("v.req"));ok=false}else{var a=ageAt(k.dob,refDate(it)),r=AGE[it.type];setErr("k"+i+"-dob",(a<r[0]||a>r[1])?t("v.age",{a:r[0],b:r[1]}):"",1)}
-      if(!k.iin){setErr("k"+i+"-iin",t("v.req"));ok=false}else setErr("k"+i+"-iin",iinValid(k.iin)?"":t("v.iin"),1);
+      setErr("k"+i+"-iin",iinValid(k.iin||"")?"":t("v.iin"),1);
     });
   }
   if(step===3){
