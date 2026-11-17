@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Madrid te espera · Kazakhstan Academy</title>
-<meta name="description" content="Una semana en Madrid entrenando al estilo Atlético de Madrid. Experiencia para jugadores de la Kazakhstan Academy.">
+<title>Kazakhstan Academy · Кампус и ETP</title>
+<meta name="description" content="Кампус с проживанием в Талгаре и тренировки ETP в Алматы. Запись и оплата онлайн.">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,52 +12,57 @@
 <style>
 :root{
   --negro:#111211;--rojo:#E8151E;--rojo-sub:#B00C10;--azul:#282A6F;--azul-sub:#22265B;
-  --blanco:#FFFFFF;--blanco-sub:#EAEAE6;--plata:#8E9090;--texto2:#5B5D66;
+  --blanco:#FFFFFF;--blanco-sub:#EAEAE6;--gris:#F1F1F6;--plata:#8E9090;--texto2:#5B5D66;--linea:#DCDDE6;
   --display:"Archivo",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--blanco);color:var(--azul);font-family:var(--display);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.bloq{overflow:hidden}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--azul);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 .cond{font-stretch:68%;font-weight:850;letter-spacing:-.01em;line-height:.92}
 
-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(40,42,111,.08)}
-.nav-in{max-width:1120px;margin:0 auto;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
-.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:650;color:var(--azul)}
+.demo-bar{background:var(--azul-sub);color:#d9dae6;font-size:13px;text-align:center;padding:7px 16px}
+nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(40,42,111,.08)}
+.nav-in{max-width:1120px;margin:0 auto;height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 24px}
+.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:650}
 .brand img{width:32px;height:32px}
-.links{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--azul)}
-.links a:hover{color:var(--azul-sub);text-decoration:underline;text-underline-offset:4px}
-@media(max-width:640px){.links{display:none}}
+.links{display:flex;gap:26px;font-size:14px;font-weight:500;align-items:center}
+.links a:hover{text-decoration:underline;text-underline-offset:4px}
+.lang{display:flex;border:1.5px solid var(--azul);border-radius:999px;overflow:hidden;font-size:13px;font-weight:600}
+.lang button{padding:4px 10px}
+.lang button[aria-pressed="true"]{background:var(--azul);color:var(--blanco)}
+@media(max-width:760px){.links a{display:none}.cart-btn span{display:none}}
 
 .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;padding:13px 28px;border-radius:999px;font-size:17px;font-weight:550;transition:background-color .2s,color .2s,box-shadow .2s}
-.btn-rojo{background:var(--azul);color:var(--blanco)}
-.btn-rojo:hover{background:var(--azul-sub)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;border-radius:999px;font-size:17px;font-weight:550;transition:background-color .2s,color .2s,box-shadow .2s}
+.btn-azul{background:var(--azul);color:var(--blanco)}
+.btn-azul:hover{background:var(--azul-sub)}
 .btn-linea{box-shadow:inset 0 0 0 1.5px var(--azul);color:var(--azul)}
 .btn-linea:hover{background:var(--azul);color:var(--blanco)}
 .btn-blanco{background:var(--blanco);color:var(--azul)}
 .btn-blanco:hover{background:var(--blanco-sub)}
+.btn-borde-blanco{box-shadow:inset 0 0 0 1.5px var(--blanco);color:var(--blanco)}
+.btn-borde-blanco:hover{background:var(--blanco);color:var(--azul)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
 
-/* hero: azul Atleti con el tejido de la camiseta */
-.hero{position:relative;text-align:center;padding-top:56px;overflow:hidden;color:var(--azul);
-  background:linear-gradient(180deg,var(--blanco) 0%,var(--blanco) 55%,#F1F1F6 100%)}
+/* hero */
+.hero{position:relative;text-align:center;padding-top:56px;overflow:hidden;background:linear-gradient(180deg,var(--blanco) 0%,var(--blanco) 55%,var(--gris) 100%)}
 .hero-crest{width:80px;height:80px;margin:0 auto 20px;display:block}
-.hero h1{font-size:clamp(56px,9.5vw,120px)}
-.hero .sub{font-size:clamp(19px,2.2vw,26px);color:var(--texto2);margin:16px auto 30px;max-width:30ch}
-.stage{position:relative;height:min(80vh,860px);min-height:520px;margin-top:8px}
+.hero h1{font-size:clamp(54px,9vw,116px)}
+.hero .sub{font-size:clamp(18px,2.1vw,24px);color:var(--texto2);margin:16px auto 30px;max-width:34ch}
+.stage{position:relative;height:min(78vh,840px);min-height:500px;margin-top:8px}
 .glow{position:absolute;left:50%;bottom:-25%;width:120%;height:80%;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(40,42,111,.16) 0%,rgba(40,42,111,.05) 40%,transparent 68%);pointer-events:none}
-.metal{position:absolute;left:50%;top:16%;transform:translateX(-50%);font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(150px,30vw,420px);line-height:.85;letter-spacing:-.015em;white-space:nowrap;
-  background:linear-gradient(105deg,#22265B 0%,#5a5d9e 14%,#d9dae6 26%,#282A6F 40%,#8E9090 52%,#eef0f6 62%,#3a3d85 76%,#22265B 100%);background-size:260% 100%;
-  -webkit-background-clip:text;background-clip:text;color:transparent}
+.metal{position:absolute;left:50%;top:16%;transform:translateX(-50%);font-stretch:62%;font-weight:900;font-size:clamp(150px,30vw,420px);line-height:.85;letter-spacing:-.015em;white-space:nowrap;
+  background:linear-gradient(105deg,#22265B 0%,#5a5d9e 14%,#d9dae6 26%,#282A6F 40%,#8E9090 52%,#eef0f6 62%,#3a3d85 76%,#22265B 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
 .floor{position:absolute;left:50%;bottom:4%;width:380px;height:56px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(34,38,91,.28),transparent 70%);pointer-events:none}
-.player{position:absolute;left:50%;bottom:10px;height:100%;aspect-ratio:3/4;transform:translateX(-50%);
-  -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
+.player{position:absolute;left:50%;bottom:10px;height:100%;aspect-ratio:3/4;transform:translateX(-50%);-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
 .player .clip,.player .still{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:bottom}
 .player .clip{filter:url(#croma);opacity:0;transition:opacity .6s}
 .player.listo .clip{opacity:1}.player.listo .still{opacity:0;transition:opacity .6s}
-
 .hero-crest,.hero h1,.hero .sub,.hero .btns{opacity:0;animation:entra .9s cubic-bezier(.2,.8,.2,1) forwards}
 .hero h1{animation-delay:.12s}.hero .sub{animation-delay:.24s}.hero .btns{animation-delay:.36s}
 .metal{opacity:0;animation:aparece 1.4s .5s forwards,brillo 8s linear infinite}
@@ -67,81 +72,225 @@ nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-f
 @keyframes sube{from{opacity:0;transform:translate(-50%,70px)}to{opacity:1;transform:translate(-50%,0)}}
 @keyframes brillo{from{background-position:0% 0}to{background-position:260% 0}}
 
-/* experiencia: blanco */
-.exp{padding:140px 0 120px;background:var(--blanco)}
-.exp-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start}
-.exp h2{font-size:clamp(52px,7vw,96px);color:var(--azul)}
-.exp h2 span{display:block}
-.incluye{list-style:none;display:grid;gap:30px;padding-top:12px}
-.incluye li{padding-left:22px;border-left:3px solid var(--azul)}
-.incluye h3{font-size:24px;font-weight:650;letter-spacing:-.01em;margin-bottom:6px;color:var(--azul)}
-.incluye p{color:var(--texto2);max-width:42ch}
-@media(max-width:820px){.exp-grid{grid-template-columns:1fr;gap:40px}}
+/* programas */
+.progs{padding:130px 0 120px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:52px}
+.sec-head h2{font-size:clamp(52px,7vw,96px)}
+.sec-head p{color:var(--texto2);max-width:36ch}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{border-radius:28px;padding:40px 36px 36px;display:flex;flex-direction:column;gap:22px;min-height:560px;position:relative;overflow:hidden}
+.card-campus{background:var(--azul);color:var(--blanco)}
+.card-etp{background:var(--gris);color:var(--azul)}
+.card .kicker{font-size:15px;font-weight:600;opacity:.8;position:relative}
+.card h3{font-size:clamp(44px,5vw,64px);position:relative}
+.card .precio{font-stretch:62%;font-weight:900;font-size:clamp(56px,6vw,80px);line-height:.9;position:relative}
+.card .precio small{display:block;font-family:var(--display);font-stretch:100%;font-weight:450;font-size:16px;opacity:.75;margin-top:8px;line-height:1.4}
+.card ul{list-style:none;display:grid;gap:10px;font-size:17px;position:relative}
+.card li{display:flex;gap:12px;align-items:flex-start}
+.card li::before{content:"";flex:0 0 8px;height:8px;margin-top:9px;border-radius:50%;background:var(--rojo)}
+.card .btn{margin-top:auto;align-self:flex-start;position:relative}
+.card-campus .franja{position:absolute;right:-70px;top:-50px;width:220px;height:300px;transform:rotate(18deg);background:repeating-linear-gradient(90deg,var(--rojo) 0 26px,var(--blanco) 26px 52px);border-radius:18px}
+@media(max-width:860px){.cards{grid-template-columns:1fr}.card{min-height:0}.card-campus .franja{width:150px;height:220px;right:-60px}}
 
-/* programa: franjas rojiblancas */
-.prog{background:#F1F1F6;color:var(--azul);padding:120px 0 96px}
-.prog-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
-.prog h2{font-size:clamp(52px,7vw,96px)}
-.prog-head p{color:var(--texto2);max-width:34ch}
-.franjas{display:grid;grid-template-columns:repeat(7,1fr);min-height:440px}
-.dia{padding:28px 18px 36px;display:flex;flex-direction:column;justify-content:space-between;background:var(--blanco);color:var(--azul)}
-.dia:nth-child(odd){background:var(--rojo);color:var(--blanco)}
-.dia .n{font-stretch:62%;font-weight:900;font-size:76px;line-height:.9}
-.dia h3{font-size:19px;font-weight:650;line-height:1.2;margin-bottom:6px}
-.dia p{font-size:15px;line-height:1.4;opacity:.85}
-@media(max-width:900px){.franjas{grid-template-columns:1fr;min-height:0}.dia{flex-direction:row;align-items:center;gap:20px;justify-content:flex-start;padding:20px 24px}.dia .n{font-size:52px;min-width:48px}}
+/* pasos */
+.pasos{background:var(--gris);padding:120px 0}
+.pasos ol{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:p}
+.pasos li{background:var(--blanco);border-radius:22px;padding:26px 22px 30px;counter-increment:p;display:flex;flex-direction:column;gap:14px;min-height:230px}
+.pasos li::before{content:counter(p);font-stretch:62%;font-weight:900;font-size:64px;line-height:.9;color:var(--rojo)}
+.pasos h3{font-size:20px;font-weight:650;line-height:1.2}
+.pasos p{font-size:15px;color:var(--texto2);line-height:1.45}
+@media(max-width:900px){.pasos ol{grid-template-columns:1fr}.pasos li{min-height:0;flex-direction:row;align-items:flex-start;gap:20px}.pasos li::before{font-size:48px;min-width:36px}}
 
-/* cierre: rojo Atleti */
-.cierre{text-align:center;padding:150px 0 140px;color:var(--blanco);background:linear-gradient(180deg,rgba(40,42,111,.94) 0%,rgba(40,42,111,.78) 55%,rgba(34,38,91,.88) 100%),url(img/estadio-escudo.jpg) center 70%/cover no-repeat}
-.cierre img{width:112px;margin:0 auto 28px;display:block;filter:drop-shadow(0 8px 24px rgba(0,0,0,.2))}
-.cierre h2{font-size:clamp(56px,8vw,104px)}
-.cierre p{color:#d9dae6;margin:18px auto 34px;max-width:36ch;font-size:20px}
-footer{text-align:center;color:#c7c8dc;background:var(--azul-sub);font-size:13px;padding:28px 24px 34px}
-
-
-/* fotos */
-.foto-ancha{margin-top:80px;border-radius:24px;overflow:hidden;aspect-ratio:21/9}
-.foto-ancha img{width:100%;height:100%;object-fit:cover;display:block}
-.banda{position:relative;min-height:min(92vh,900px);overflow:hidden;color:var(--blanco);display:flex;align-items:flex-end}
+/* bandas */
+.banda{position:relative;min-height:min(86vh,860px);overflow:hidden;color:var(--blanco);display:flex;align-items:flex-end}
 .banda>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .banda::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(34,38,91,.92) 0%,rgba(34,38,91,.45) 38%,rgba(34,38,91,0) 70%)}
 .banda .wrap{position:relative;z-index:1;padding-bottom:72px;width:100%}
-.banda h2{font-size:clamp(68px,11vw,168px)}
-.banda p{font-size:clamp(18px,1.8vw,22px);max-width:40ch;margin-top:18px;color:#e6e7f2}
-.mosaico{display:grid;gap:14px;padding:14px;background:var(--blanco)}
-.mosaico figure{position:relative;overflow:hidden;border-radius:22px;margin:0}
-.mosaico img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
-.mosaico figure:hover img{transform:scale(1.03)}
-.mosaico figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 24px 22px;color:var(--blanco);font-weight:600;font-size:19px;line-height:1.25;background:linear-gradient(to top,rgba(17,18,17,.65),transparent)}
-.m-tres{grid-template-columns:repeat(3,1fr)}
-.m-tres figure{aspect-ratio:4/5}
-.m-equipo{grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr}
-.m-equipo figure:first-child{grid-row:span 2}
-.m-equipo figure{min-height:300px}
-@media(max-width:820px){.m-tres{grid-template-columns:1fr}.m-tres figure{aspect-ratio:4/3}.m-equipo{grid-template-columns:1fr;grid-template-rows:auto}.m-equipo figure:first-child{grid-row:auto}.foto-ancha{aspect-ratio:4/3;margin-top:56px}.banda{min-height:76vh}}
+.banda h2{font-size:clamp(64px,10vw,156px)}
+.banda p{font-size:clamp(18px,1.8vw,22px);max-width:42ch;margin-top:18px;color:#e6e7f2}
 
+/* campus detalle */
+.detalle{padding:110px 0 120px}
+.incluye{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:90px}
+.incluye div{border-left:3px solid var(--azul);padding:6px 0 6px 20px}
+.incluye b{display:block;font-size:20px;font-weight:650;margin-bottom:4px}
+.incluye span{color:var(--texto2);font-size:16px}
+@media(max-width:820px){.incluye{grid-template-columns:1fr}}
+.franjas{display:grid;grid-template-columns:repeat(7,1fr);min-height:380px;border-radius:24px;overflow:hidden}
+.dia{padding:26px 16px 30px;display:flex;flex-direction:column;justify-content:space-between;background:var(--blanco);box-shadow:inset 0 0 0 1px var(--linea)}
+.dia:nth-child(odd){background:var(--rojo);color:var(--blanco);box-shadow:none}
+.dia .n{font-stretch:62%;font-weight:900;font-size:72px;line-height:.9}
+.dia h3{font-size:18px;font-weight:650;line-height:1.2;margin-bottom:6px}
+.dia p{font-size:14px;line-height:1.4;opacity:.85}
+@media(max-width:900px){.franjas{grid-template-columns:1fr;min-height:0}.dia{flex-direction:row;align-items:center;gap:20px;justify-content:flex-start;padding:18px 22px}.dia .n{font-size:48px;min-width:44px}}
 
-/* lema */
+.turnos{margin-top:90px}
+.turnos h3,.planes h3{font-size:clamp(36px,4.5vw,56px);margin-bottom:28px}
+.lista-turnos{display:grid;gap:12px}
+.turno{display:grid;grid-template-columns:1.3fr 1fr 1fr auto;align-items:center;gap:20px;padding:22px 26px;border-radius:20px;background:var(--gris)}
+.turno b{font-size:20px;font-weight:650;display:block}
+.turno span{color:var(--texto2);font-size:15px}
+.plazas{font-weight:600;font-size:16px}
+.plazas.pocas{color:var(--rojo)}
+.barra{height:6px;border-radius:9px;background:#d9dae6;margin-top:8px;overflow:hidden}
+.barra i{display:block;height:100%;background:var(--azul);border-radius:9px}
+.turno .precio-t{font-stretch:62%;font-weight:900;font-size:34px;white-space:nowrap}
+@media(max-width:820px){.turno{grid-template-columns:1fr 1fr}.turno .btn{grid-column:1/-1}.turno .precio-t{font-size:28px}}
+
+/* ETP */
+.etp-info{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:70px}
+.etp-info div{background:var(--gris);border-radius:22px;padding:26px}
+.etp-info b{display:block;font-size:22px;font-weight:650;margin-bottom:6px}
+.etp-info span{color:var(--texto2);font-size:16px}
+.planes .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.plan{border-radius:26px;padding:34px;display:flex;flex-direction:column;gap:14px;box-shadow:inset 0 0 0 1.5px var(--linea)}
+.plan.dest{box-shadow:inset 0 0 0 2px var(--azul)}
+.plan h4{font-size:24px;font-weight:650}
+.plan .p3{font-stretch:62%;font-weight:900;font-size:64px;line-height:.9}
+.plan .p3 small{font-family:var(--display);font-stretch:100%;font-size:16px;font-weight:450;color:var(--texto2);display:block;margin-top:6px}
+.plan .btn{align-self:flex-start;margin-top:8px}
+@media(max-width:820px){.etp-info,.planes .grid2{grid-template-columns:1fr}}
+
 .lema{background:var(--azul);color:var(--blanco);overflow:hidden;padding:26px 0;white-space:nowrap}
-.lema-track{display:inline-flex;gap:56px;animation:lema 28s linear infinite;font-stretch:62%;font-weight:900;font-size:clamp(56px,8vw,120px);line-height:1;letter-spacing:-.01em}
+.lema-track{display:inline-flex;gap:56px;animation:lema 28s linear infinite;font-stretch:62%;font-weight:900;font-size:clamp(56px,8vw,120px);line-height:1}
 .lema-track span{display:inline-flex;align-items:center;gap:56px}
 .lema-track span::after{content:"";width:.5em;height:.5em;border-radius:50%;background:var(--rojo);display:inline-block}
 .lema-track span:nth-child(even){-webkit-text-stroke:2px var(--blanco);color:transparent}
 @keyframes lema{to{transform:translateX(-50%)}}
 
-/* scroll-driven: zoom en bandas y cortina en mosaicos */
+.cierre{text-align:center;padding:150px 0 140px;color:var(--blanco);background:linear-gradient(180deg,rgba(40,42,111,.94) 0%,rgba(40,42,111,.8) 55%,rgba(34,38,91,.9) 100%),url(img/estadio-escudo.jpg) center 70%/cover no-repeat}
+.cierre img{width:108px;margin:0 auto 28px;display:block}
+.cierre h2{font-size:clamp(54px,8vw,100px)}
+.cierre p{color:#d9dae6;margin:18px auto 34px;max-width:36ch;font-size:20px}
+footer{background:var(--azul-sub);color:#c7c8dc;font-size:14px;padding:34px 24px 40px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer button,footer a{text-decoration:underline;text-underline-offset:3px;color:#e6e7f2}
+footer .req{line-height:1.7}
+footer .flinks{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.cart-btn{display:inline-flex;align-items:center;gap:8px;padding:6px 8px 6px 14px;border-radius:999px;background:var(--azul);color:#fff;font-size:14px;font-weight:600}
+.cart-btn b{min-width:24px;height:24px;border-radius:999px;background:var(--rojo);display:grid;place-items:center;font-size:13px;padding:0 6px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);z-index:90;background:var(--azul);color:#fff;border-radius:999px;padding:10px 10px 10px 22px;display:flex;gap:16px;align-items:center;font-weight:600;box-shadow:0 12px 40px rgba(34,38,91,.35);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.toast.on{transform:translate(-50%,0)}
+.toast span{white-space:nowrap}
+
+/* ---------- capas ---------- */
+.capa{position:fixed;inset:0;z-index:100;background:rgba(17,18,40,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:center}
+.capa.abierta{display:flex}
+.hoja{background:var(--blanco);width:min(980px,100%);max-height:94vh;border-radius:28px 28px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:hoja .45s cubic-bezier(.2,.8,.2,1)}
+@media(min-width:900px){.capa{align-items:center}.hoja{border-radius:28px;max-height:90vh}}
+@keyframes hoja{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+.hoja-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 28px;border-bottom:1px solid var(--linea)}
+.hoja-top h2{font-size:20px;font-weight:650}
+.cerrar{width:38px;height:38px;border-radius:50%;background:var(--gris);font-size:22px;line-height:1;display:grid;place-items:center}
+.progreso{display:flex;gap:6px;padding:16px 28px 0}
+.progreso i{flex:1;height:5px;border-radius:9px;background:var(--linea);transition:background .3s}
+.progreso i.ok{background:var(--azul)}
+.progreso-txt{padding:10px 28px 0;font-size:14px;color:var(--texto2)}
+.hoja-cuerpo{padding:22px 28px 28px;overflow:auto;flex:1}
+.hoja-pie{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 28px;border-top:1px solid var(--linea);background:var(--blanco);flex-wrap:wrap}
+.hoja-pie .total{font-size:15px;color:var(--texto2)}
+.hoja-pie .total b{display:block;color:var(--azul);font-size:24px;font-stretch:80%;font-weight:800}
+.hoja-pie .der{display:flex;gap:10px;margin-left:auto}
+.paso-h{font-size:clamp(30px,4vw,44px);margin-bottom:8px}
+.paso-sub{color:var(--texto2);margin-bottom:24px;font-size:16px}
+.opciones{display:grid;gap:10px}
+.opcion{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:18px;box-shadow:inset 0 0 0 1.5px var(--linea);text-align:left;width:100%}
+.opcion[aria-checked="true"]{box-shadow:inset 0 0 0 2px var(--azul);background:#f6f6fb}
+.opcion[disabled]{opacity:.45;cursor:not-allowed}
+.opcion .rad{width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--plata);flex:0 0 auto}
+.opcion[aria-checked="true"] .rad{box-shadow:inset 0 0 0 7px var(--azul)}
+.opcion .t{flex:1}
+.opcion b{display:block;font-size:18px;font-weight:650}
+.opcion span{font-size:14px;color:var(--texto2)}
+.opcion .pr{font-weight:700;font-size:18px;white-space:nowrap}
+fieldset{border:0;margin-bottom:26px}
+legend{font-weight:650;font-size:18px;margin-bottom:12px}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo.ancho{grid-column:1/-1}
+.campo label{font-size:14px;font-weight:600}
+.campo input{height:48px;border-radius:12px;border:1.5px solid var(--linea);padding:0 14px;font:inherit;font-size:16px;color:var(--azul);background:var(--blanco)}
+.campo input:focus{outline:none;border-color:var(--azul)}
+.campo.err input{border-color:var(--rojo)}
+.campo .msg{font-size:13px;color:var(--rojo)}
+@media(max-width:640px){.campos{grid-template-columns:1fr}}
+.subir{display:grid;gap:10px}
+.archivo{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;background:var(--gris);position:relative}
+.archivo .t{flex:1;min-width:0}
+.archivo b{display:block;font-size:16px;font-weight:650}
+.archivo .t>span{font-size:13px;color:var(--texto2);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.archivo label{padding:9px 16px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--azul);font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.archivo input{position:absolute;width:1px;height:1px;opacity:0}
+.archivo.ok{background:#eaf4ec}
+.archivo.ok label{background:var(--azul);color:var(--blanco)}
+.archivo.falta{box-shadow:inset 0 0 0 1.5px var(--rojo)}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--blanco);margin-left:6px;vertical-align:1px}
+.oferta{max-height:280px;overflow:auto;border-radius:16px;background:var(--gris);padding:20px 22px;font-size:15px;line-height:1.55;margin-bottom:18px}
+.oferta h4{font-size:16px;margin:14px 0 4px}
+.oferta h4:first-child{margin-top:0}
+.check{display:flex;gap:12px;align-items:flex-start;padding:10px 0;font-size:16px;cursor:pointer}
+.check input{width:22px;height:22px;accent-color:var(--azul);flex:0 0 auto;margin-top:1px}
+.check small{display:block;color:var(--texto2);font-size:13px}
+.check.err{color:var(--rojo)}
+.sms{display:flex;gap:10px;margin:18px 0 12px}
+.sms input{width:58px;height:66px;text-align:center;font-size:28px;font-weight:700;border-radius:14px;border:1.5px solid var(--linea);color:var(--azul);font-family:inherit}
+.sms input:focus{outline:none;border-color:var(--azul)}
+.pista{font-size:14px;color:var(--texto2);background:var(--gris);border-radius:12px;padding:10px 14px;display:inline-block}
+.msg-err{color:var(--rojo);font-size:14px;margin-top:10px;min-height:20px}
+.resumen{border-radius:20px;background:var(--gris);padding:22px 24px;display:grid;gap:10px;margin-bottom:22px}
+.resumen div{display:flex;justify-content:space-between;gap:16px;font-size:16px}
+.resumen div span:first-child{color:var(--texto2)}
+.resumen .tot{border-top:1px solid var(--linea);padding-top:12px;font-weight:700;font-size:20px}
+.pago-demo{border-radius:20px;box-shadow:inset 0 0 0 1.5px var(--linea);padding:22px 24px}
+.pago-demo b{font-size:18px}
+.pago-demo p{font-size:15px;color:var(--texto2);margin:6px 0 16px}
+.spinner{width:20px;height:20px;border-radius:50%;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;animation:gira .8s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+.exito{text-align:center;padding:10px 0 6px}
+.exito .ok-ico{width:84px;height:84px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center;margin:0 auto 20px;font-size:44px;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+.exito .num{font-stretch:62%;font-weight:900;font-size:clamp(40px,6vw,64px);line-height:1;margin:8px 0 6px}
+.siguiente{text-align:left;margin:26px auto 0;max-width:600px;display:grid;gap:10px}
+.siguiente div{display:flex;gap:12px;padding:14px 16px;border-radius:14px;background:var(--gris);font-size:15px}
+.siguiente div b{color:var(--rojo);min-width:18px}
+
+/* panel */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+.kpi{background:var(--gris);border-radius:18px;padding:18px}
+.kpi span{font-size:13px;color:var(--texto2)}
+.kpi b{display:block;font-size:30px;font-stretch:72%;font-weight:850}
+@media(max-width:700px){.kpis{grid-template-columns:1fr 1fr}}
+.panel-h{font-size:17px;font-weight:650;margin:6px 0 12px}
+.tabla-wrap{overflow:auto;border-radius:16px;box-shadow:inset 0 0 0 1px var(--linea)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:820px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--linea);white-space:nowrap}
+th{font-size:12px;color:var(--texto2);font-weight:600;background:var(--gris)}
+td button{text-decoration:underline;text-underline-offset:3px;font-size:14px}
+.est{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;display:inline-block}
+.est.pag{background:#e3f1e5;color:#1e6b33}
+.est.pen{background:#fdf0dc;color:#8a5a00}
+.ocup{display:grid;gap:12px;margin:0 0 26px}
+.ocup div{display:grid;grid-template-columns:1.6fr 3fr auto;gap:14px;align-items:center;font-size:14px}
+.panel-acc{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.panel-acc .btn{padding:10px 20px;font-size:15px}
+
+/* documento */
+.doc{font-family:Georgia,"Times New Roman",serif;color:#111;font-size:14px;line-height:1.55;max-width:760px;margin:0 auto}
+.doc h1{font-family:var(--display);font-size:18px;text-align:center;margin-bottom:4px}
+.doc .c{text-align:center;margin-bottom:16px;font-size:13px}
+.doc h2{font-family:var(--display);font-size:14px;margin:16px 0 6px}
+.doc p{margin-bottom:6px}
+.doc table{min-width:0;font-size:13px;margin-top:14px}
+.doc td{white-space:normal;vertical-align:top;border:1px solid #ccc;padding:10px}
+.doc .sello{margin-top:16px;padding:12px;border:1.5px dashed var(--azul);color:var(--azul);font-family:var(--display);font-size:13px;border-radius:8px}
+@media print{body>*:not(#capa-doc){display:none!important}#capa-doc{position:static;background:none;display:block!important;backdrop-filter:none}#capa-doc .hoja{box-shadow:none;max-height:none;border-radius:0;width:100%;animation:none}#capa-doc .hoja-top,#capa-doc .hoja-pie{display:none}#capa-doc .hoja-cuerpo{overflow:visible}}
+
 @supports (animation-timeline: view()){
   .banda>img{animation:acercar linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
   @keyframes acercar{from{transform:scale(1.22)}to{transform:scale(1)}}
   .banda h2{animation:titular linear both;animation-timeline:view();animation-range:entry 20% cover 55%}
   @keyframes titular{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:none}}
-  .mosaico figure{animation:cortina linear both;animation-timeline:view();animation-range:entry 0% cover 40%}
-  .mosaico figure:nth-child(2){animation-range:entry 10% cover 48%}
-  .mosaico figure:nth-child(3){animation-range:entry 20% cover 56%}
-  @keyframes cortina{from{clip-path:inset(100% 0 0 0 round 22px);transform:translateY(40px)}to{clip-path:inset(0 0 0 0 round 22px);transform:none}}
-  .foto-ancha img{animation:acercar linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
 }
-
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .hero-crest,.hero h1,.hero .sub,.hero .btns,.metal,.player{opacity:1}
@@ -150,102 +299,196 @@ footer{text-align:center;color:#c7c8dc;background:var(--azul-sub);font-size:13px
 </head>
 <body>
 
+<div class="demo-bar" data-i18n="demo">Демо-версия: оплата и данные симулируются, ничего никуда не отправляется.</div>
 <nav><div class="nav-in">
   <a class="brand" href="#"><img src="logo.png" alt="">Kazakhstan Academy</a>
-  <div class="links"><a href="#experiencia">La experiencia</a><a href="#rendimiento">Entrenamiento</a><a href="#programa">Programa</a><a href="#equipo">Estadio</a><a href="#reservar">Reservar</a></div>
+  <div class="links">
+    <a href="#campus" data-i18n="nav.campus">Кампус</a>
+    <a href="#etp">ETP</a>
+    <a href="#como" data-i18n="nav.como">Как купить</a>
+    <button type="button" id="cart-btn" class="cart-btn" aria-label="Корзина"><span>Корзина</span><b>0</b></button>
+    <div class="lang" role="group" aria-label="Язык / Language"><button type="button" data-lang="ru" aria-pressed="true">RU</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+  </div>
 </div></nav>
 
 <header class="hero">
-  <img class="hero-crest" src="logo.png" alt="Escudo de la Kazakhstan Academy">
-  <h1 class="cond">Madrid te espera.</h1>
-  <p class="sub">Una semana entrenando al estilo Atlético de Madrid.</p>
+  <img class="hero-crest" src="logo.png" alt="Kazakhstan Academy">
+  <h1 class="cond" data-i18n="hero.h1">Тренируйся как Атлетико.</h1>
+  <p class="sub" data-i18n="hero.sub">Кампус с проживанием в Талгаре и тренировки ETP в Алматы. Запись и оплата онлайн за 5 минут.</p>
   <div class="btns">
-    <a class="btn btn-rojo" href="#reservar">Reservar plaza</a>
-    <a class="btn btn-linea" href="#programa">Ver el programa</a>
+    <button class="btn btn-azul" type="button" data-comprar="campus" data-i18n="hero.b1">Купить кампус</button>
+    <button class="btn btn-linea" type="button" data-comprar="etp" data-i18n="hero.b2">Записаться в ETP</button>
   </div>
   <div class="stage">
     <div class="glow"></div>
-    <div class="metal" aria-hidden="true">MADRID</div>
+    <div class="metal" aria-hidden="true">TALGAR</div>
     <div class="floor"></div>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="croma" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 0.97 0 0 0.01  0 0 1 0 0  1.7 -1.7 1.7 0 0.9"/><feComponentTransfer><feFuncA type="linear" slope="1.6" intercept="-0.3"/></feComponentTransfer></filter></svg>
-    <div class="player"><video class="clip" autoplay muted loop playsinline preload="auto" aria-label="Jugador de la Kazakhstan Academy girando con el balón" src="https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_065031_60a45088-23ef-49e4-816f-785289d8c912.mp4"></video><img class="still" src="https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_062921_a0df6a39-d92a-401f-ba35-f424c1333b49.png" alt="Jugador de la Kazakhstan Academy con la camiseta rojiblanca y el balón"></div>
+    <div class="player"><video class="clip" autoplay muted loop playsinline preload="auto" aria-label="Игрок академии с мячом" src="https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_065031_60a45088-23ef-49e4-816f-785289d8c912.mp4"></video><img class="still" src="https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_062921_a0df6a39-d92a-401f-ba35-f424c1333b49.png" alt="Игрок академии в красно-белой форме с мячом"></div>
   </div>
 </header>
 
-<section class="exp" id="experiencia">
-  <div class="wrap exp-grid">
-    <h2 class="cond">De Kazajistán<span>a la casa del Atleti.</span></h2>
-    <ul class="incluye">
-      <li><h3>Entrenar con la metodología del club</h3><p>Sesiones cada día, adaptadas a la edad y al nivel de cada jugador.</p></li>
-      <li><h3>Conocer el estadio por dentro</h3><p>Una visita al estadio del Atlético de Madrid para sentir de cerca lo que es jugar aquí.</p></li>
-      <li><h3>Vivir Madrid en grupo</h3><p>Siete días con los compañeros de la academia, dentro y fuera del campo.</p></li>
-    </ul>
-  </div>
-  <div class="wrap"><figure class="foto-ancha"><img src="img/centro-entrenamiento.jpg" alt="Centro de entrenamiento del Atlético de Madrid con las gradas rojas" loading="lazy"></figure></div>
-</section>
-
-<section class="banda" id="rendimiento">
-  <img src="img/ar-fondo.jpg" alt="" loading="lazy">
+<section class="progs">
   <div class="wrap">
-    <h2 class="cond">Entrenar<br>como el Atleti.</h2>
-    <p>Metodología del club, sesiones cada día y unas instalaciones de primer nivel.</p>
-  </div>
-</section>
-<div class="mosaico m-tres">
-  <figure><img src="img/ar-entrenador.jpg" alt="Entrenador dando indicaciones durante una sesión" loading="lazy"><figcaption>Entrenadores con la metodología del club</figcaption></figure>
-  <figure><img src="img/ar-control.jpg" alt="Jugador de la academia controlando el balón" loading="lazy"><figcaption>Técnica individual, cada día</figcaption></figure>
-  <figure><img src="img/ar-realidad-virtual.jpg" alt="Jugador con gafas de realidad virtual Eterno Calderón" loading="lazy"><figcaption>La historia del club en realidad virtual</figcaption></figure>
-</div>
-
-<section class="prog" id="programa">
-  <div class="wrap prog-head">
-    <h2 class="cond">Siete días.</h2>
-    <p>Así es una semana tipo. El calendario definitivo se confirma con cada grupo.</p>
-  </div>
-  <div class="franjas">
-    <div class="dia"><span class="n">1</span><div><h3>Llegada</h3><p>Bienvenida y primer paseo por Madrid.</p></div></div>
-    <div class="dia"><span class="n">2</span><div><h3>Primer entrenamiento</h3><p>Evaluación y sesión técnica.</p></div></div>
-    <div class="dia"><span class="n">3</span><div><h3>Táctica</h3><p>Campo por la mañana, pizarra por la tarde.</p></div></div>
-    <div class="dia"><span class="n">4</span><div><h3>Día rojiblanco</h3><p>Visita al estadio.</p></div></div>
-    <div class="dia"><span class="n">5</span><div><h3>Partidos</h3><p>Competir con todo lo aprendido.</p></div></div>
-    <div class="dia"><span class="n">6</span><div><h3>Madrid</h3><p>Entrenamiento suave y ciudad.</p></div></div>
-    <div class="dia"><span class="n">7</span><div><h3>Despedida</h3><p>Recuerdos y vuelta a casa.</p></div></div>
-  </div>
-</section>
-
-<div class="lema" aria-hidden="true"><div class="lema-track"><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span></div></div>
-<section class="banda" id="equipo">
-  <img src="img/eq-fondo.jpg" alt="" loading="lazy">
-  <div class="wrap">
-    <h2 class="cond">Sentir el<br>Metropolitano.</h2>
-    <p>Estadio, análisis y equipo: una semana dentro del mundo rojiblanco.</p>
-  </div>
-</section>
-<div class="mosaico m-equipo">
-  <figure><img src="img/eq-tunel.jpg" alt="Jugadores jóvenes chocando la mano en el túnel del estadio" loading="lazy"><figcaption>En el túnel del Metropolitano</figcaption></figure>
-  <figure><img src="img/eq-analisis.jpg" alt="Jugadores viendo un análisis de vídeo" loading="lazy"><figcaption>Análisis de vídeo, como los profesionales</figcaption></figure>
-  <figure><img src="img/eq-gimnasio.jpg" alt="Gimnasio del centro de entrenamiento" loading="lazy"><figcaption>El gimnasio del centro de entrenamiento</figcaption></figure>
-</div>
-
-<section class="cierre" id="reservar">
-  <div class="wrap">
-    <img src="logo.png" alt="Escudo de la Kazakhstan Academy">
-    <h2 class="cond">Plazas limitadas.</h2>
-    <p>Pregunta por las fechas y el precio a tu entrenador de la academia.</p>
-    <div class="btns">
-      <a class="btn btn-blanco" href="#reservar">Reservar plaza</a>
+    <div class="sec-head">
+      <h2 class="cond" data-i18n="progs.h2">Выберите программу.</h2>
+      <p data-i18n="progs.p">Всё оформляется онлайн: договор, документы и оплата. Без звонков и визитов в офис.</p>
+    </div>
+    <div class="cards">
+      <article class="card card-campus">
+        <div class="franja" aria-hidden="true"></div>
+        <span class="kicker" data-i18n="c.kicker">Талгар, с. Береке</span>
+        <h3 class="cond" data-i18n="c.h3">Кампус<br>7 дней</h3>
+        <div class="precio">340 000 ₸<small data-i18n="c.per">за путёвку, 7 дней и 6 ночей, налоги включены</small></div>
+        <ul>
+          <li data-i18n="c.l1">Проживание 24/7 в 2-местных номерах</li>
+          <li data-i18n="c.l2">5-разовое сбалансированное питание</li>
+          <li data-i18n="c.l3">Ежедневные тренировки по методологии Atlético de Madrid</li>
+          <li data-i18n="c.l4">Бассейн, досуговая программа и охрана</li>
+        </ul>
+        <button class="btn btn-blanco" type="button" data-comprar="campus" data-i18n="c.cta">Выбрать смену</button>
+      </article>
+      <article class="card card-etp">
+        <span class="kicker" data-i18n="e.kicker">Алматы, ул. Абая 8в</span>
+        <h3 class="cond">Early Talent<br>Program</h3>
+        <div class="precio"><span data-i18n="e.desde">от 30 000 ₸</span><small data-i18n="e.per">в месяц, абонемент на 3 месяца</small></div>
+        <ul>
+          <li data-i18n="e.l1">Вторник и четверг, 18:00</li>
+          <li data-i18n="e.l2">1 или 2 тренировки в неделю</li>
+          <li data-i18n="e.l3">Групповые занятия по футболу и физподготовке</li>
+          <li data-i18n="e.l4">Заморозка абонемента до 7 дней</li>
+        </ul>
+        <button class="btn btn-azul" type="button" data-comprar="etp" data-i18n="e.cta">Выбрать абонемент</button>
+      </article>
     </div>
   </div>
 </section>
 
-<footer>© 2026 Kazakhstan Academy</footer>
+<section class="pasos" id="como">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="cond" data-i18n="como.h2">Пять минут.<br>Без бумаг.</h2>
+      <p data-i18n="como.p">Родитель делает всё сам с телефона. Академия получает готовую заявку, подписанный договор и оплату.</p>
+    </div>
+    <ol>
+      <li><div><h3 data-i18n="s1.h">Выберите смену или абонемент</h3><p data-i18n="s1.p">Свободные места видны в реальном времени.</p></div></li>
+      <li><div><h3 data-i18n="s2.h">Заполните данные</h3><p data-i18n="s2.p">Родитель и ребёнок: ФИО, ИИН, контакты.</p></div></li>
+      <li><div><h3 data-i18n="s3.h">Загрузите документы</h3><p data-i18n="s3.p">Фото свидетельства и удостоверений. Справки можно позже.</p></div></li>
+      <li><div><h3 data-i18n="s4.h">Примите оферту</h3><p data-i18n="s4.p">Подтверждение кодом из SMS.</p></div></li>
+      <li><div><h3 data-i18n="s5.h">Оплатите</h3><p data-i18n="s5.p">Картой, Apple Pay или Google Pay. Договор приходит на почту.</p></div></li>
+    </ol>
+  </div>
+</section>
 
+<section class="banda" id="campus">
+  <img src="img/ar-fondo.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <h2 class="cond" data-i18n="cb.h2">Неделя<br>как в Атлетико.</h2>
+    <p data-i18n="cb.p">Кампус с полным пансионом на тренировочной базе академии в Талгаре.</p>
+  </div>
+</section>
 
-<script>
-(function(){var p=document.querySelector('.player'),v=p.querySelector('.clip');
-if(matchMedia('(prefers-reduced-motion:reduce)').matches){v.remove();return;}
-v.addEventListener('playing',function(){p.classList.add('listo')},{once:true});
-v.addEventListener('error',function(){v.remove()});})();
-</script>
+<section class="detalle">
+  <div class="wrap">
+    <div class="incluye">
+      <div><b data-i18n="i1.b">Проживание</b><span data-i18n="i1.s">Круглосуточно, 2-местные номера, охрана</span></div>
+      <div><b data-i18n="i2.b">Питание</b><span data-i18n="i2.s">5 раз в день, сбалансированное меню</span></div>
+      <div><b data-i18n="i3.b">Футбол и отдых</b><span data-i18n="i3.s">Тренировки каждый день, бассейн и досуг</span></div>
+    </div>
+    <div class="franjas">
+      <div class="dia"><span class="n">1</span><div><h3 data-i18n="d1.h">Заезд</h3><p data-i18n="d1.p">Знакомство и тестирование</p></div></div>
+      <div class="dia"><span class="n">2</span><div><h3 data-i18n="d2.h">Техника</h3><p data-i18n="d2.p">Работа с мячом</p></div></div>
+      <div class="dia"><span class="n">3</span><div><h3 data-i18n="d3.h">Тактика</h3><p data-i18n="d3.p">Поле и разбор видео</p></div></div>
+      <div class="dia"><span class="n">4</span><div><h3 data-i18n="d4.h">Бассейн</h3><p data-i18n="d4.p">Восстановление и досуг</p></div></div>
+      <div class="dia"><span class="n">5</span><div><h3 data-i18n="d5.h">Матчи</h3><p data-i18n="d5.p">Турнир внутри кампуса</p></div></div>
+      <div class="dia"><span class="n">6</span><div><h3 data-i18n="d6.h">Финал</h3><p data-i18n="d6.p">Награждение</p></div></div>
+      <div class="dia"><span class="n">7</span><div><h3 data-i18n="d7.h">Выезд</h3><p data-i18n="d7.p">Встреча с родителями</p></div></div>
+    </div>
+    <div class="turnos">
+      <h3 class="cond" data-i18n="t.h3">Ближайшие смены</h3>
+      <div class="lista-turnos" id="lista-turnos"></div>
+    </div>
+  </div>
+</section>
+
+<div class="lema" aria-hidden="true"><div class="lema-track"><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span><span>Nunca dejes de creer</span></div></div>
+
+<section class="banda" id="etp">
+  <img src="img/ar-control.jpg" alt="" loading="lazy" style="object-position:center 30%">
+  <div class="wrap">
+    <h2 class="cond">Early Talent<br>Program.</h2>
+    <p data-i18n="eb.p">Групповые тренировки в Алматы для тех, кто только начинает.</p>
+  </div>
+</section>
+
+<section class="detalle">
+  <div class="wrap">
+    <div class="etp-info">
+      <div><b data-i18n="ei1.b">Где</b><span data-i18n="ei1.s">Алматы, ул. Абая 8в, здание КазНАИУ</span></div>
+      <div><b data-i18n="ei2.b">Когда</b><span data-i18n="ei2.s">Вторник и четверг, 18:00</span></div>
+      <div><b data-i18n="ei3.b">Медицина</b><span data-i18n="ei3.s">Допуск врача и обследования в первую неделю</span></div>
+    </div>
+    <div class="planes">
+      <h3 class="cond" data-i18n="pl.h3">Абонемент на 3 месяца</h3>
+      <div class="grid2" id="planes"></div>
+    </div>
+  </div>
+</section>
+
+<section class="cierre">
+  <div class="wrap">
+    <img src="logo.png" alt="">
+    <h2 class="cond" data-i18n="ci.h2">Место ждёт.</h2>
+    <p data-i18n="ci.p">Оформление занимает пять минут. Договор и чек придут на почту сразу после оплаты.</p>
+    <div class="btns">
+      <button class="btn btn-blanco" type="button" data-comprar="campus" data-i18n="hero.b1">Купить кампус</button>
+      <button class="btn btn-borde-blanco" type="button" data-comprar="etp" data-i18n="hero.b2">Записаться в ETP</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="req">
+      <b>ОО «SPORT ASSET MANAGEMENT»</b><br>
+      БИН 121240005887 · АО «Народный Банк Казахстана», БИК HSBKKZKA<br>
+      <span data-i18n="f.dir">Алматинская обл., Талгарский р-н, с. Береке</span><br>
+      office@samgt.kz · +7 700 171 2222
+    </div>
+    <div class="flinks">
+      <a id="link-offer" href="offer.html" data-i18n="f.offer">Публичная оферта</a>
+      <a id="link-priv" href="privacy.html" data-i18n="f.priv">Политика конфиденциальности</a>
+      <button type="button" id="abrir-panel" data-i18n="f.panel">Панель академии (демо)</button>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="capa" id="capa-compra" role="dialog" aria-modal="true" aria-labelledby="compra-titulo">
+  <div class="hoja">
+    <div class="hoja-top"><h2 id="compra-titulo"></h2><button class="cerrar" type="button" data-cerrar aria-label="×">×</button></div>
+    <div class="progreso" id="progreso"></div>
+    <div class="progreso-txt" id="progreso-txt"></div>
+    <div class="hoja-cuerpo" id="paso"></div>
+    <div class="hoja-pie" id="pie"></div>
+  </div>
+</div>
+
+<div class="capa" id="capa-panel" role="dialog" aria-modal="true" aria-labelledby="panel-titulo">
+  <div class="hoja" style="width:min(1180px,100%)">
+    <div class="hoja-top"><h2 id="panel-titulo" data-i18n="pa.t">Панель академии</h2><button class="cerrar" type="button" data-cerrar aria-label="×">×</button></div>
+    <div class="hoja-cuerpo" id="panel"></div>
+  </div>
+</div>
+
+<div class="capa" id="capa-doc" role="dialog" aria-modal="true" aria-labelledby="doc-titulo">
+  <div class="hoja">
+    <div class="hoja-top"><h2 id="doc-titulo" data-i18n="doc.t">Документ</h2><button class="cerrar" type="button" data-cerrar aria-label="×">×</button></div>
+    <div class="hoja-cuerpo" id="doc"></div>
+    <div class="hoja-pie"><span class="total" data-i18n="doc.nota">Демо: в рабочей версии PDF приходит на почту автоматически.</span><button class="btn btn-azul" type="button" onclick="window.print()" data-i18n="doc.print">Скачать / печать</button></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
