@@ -438,12 +438,13 @@ function csv(){
 }
 
 /* ---------- vídeo ---------- */
-(function(){var p=$(".player"),v=p&&p.querySelector(".clip");if(!v)return;
-  var ua=navigator.userAgent,ios=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),safari=/^((?!chrome|android|crios|fxios|edg).)*safari/i.test(ua),movil=matchMedia("(pointer:coarse)").matches||/Android|Mobi/i.test(ua);
-  if(ios||safari||movil){v.remove();var st=p.querySelector(".still");if(st)st.remove();var m=p.querySelector(".still-m");if(m)m.hidden=false;p.classList.add("movil");return}
-  if(matchMedia("(prefers-reduced-motion:reduce)").matches){v.remove();return}
-  v.addEventListener("playing",function(){p.classList.add("listo")},{once:true});
-  v.addEventListener("error",function(){v.remove()});})();
+(function(){var p=$(".player");if(!p)return;var v=p.querySelector(".clip"),im=p.querySelector(".anim");
+  var ua=navigator.userAgent,ios=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1),safari=/^((?!chrome|android|crios|fxios|edg).)*safari/i.test(ua);
+  var red=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  if(ios||safari){if(v)v.remove();if(red){im.src="media/hero-poster.png"}im.hidden=false;return}
+  if(red){v.removeAttribute("autoplay");v.pause&&v.pause()}
+  v.addEventListener("error",function(){v.remove();im.hidden=false},true);
+})();
 
 applyLang();
 })();
