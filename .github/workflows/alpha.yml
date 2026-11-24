@@ -1,0 +1,31 @@
+name: Video transparente del hero
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/alpha.yml"]
+permissions:
+  contents: write
+jobs:
+  convertir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg webp > /dev/null
+      - name: Descargar y quitar el verde
+        run: |
+          mkdir -p media
+          curl -sSL -o in.mp4 "https://d8j0ntlcm91z4.cloudfront.net/user_3MDimZyfCzQ2CaTsTuNQPk9KScm/hf_20261117_105657_31291d61-c868-44b8-9827-5581845a3699.mp4"
+          ffprobe -v error -show_entries stream=width,height,r_frame_rate,duration -of csv=p=0 in.mp4
+          KEY="crop=iw-12:ih-12,chromakey=0x00FF00:0.20:0.07,despill=type=green:mix=0.6:expand=0.2"
+          ffmpeg -y -v error -i in.mp4 -vf "$KEY,scale=640:-2,fps=24,format=yuva420p" -c:v libvpx-vp9 -pix_fmt yuva420p -b:v 1500k -auto-alt-ref 0 -an media/hero.webm
+          ffmpeg -y -v error -i in.mp4 -vf "$KEY,scale=480:-2,fps=15" -c:v libwebp_anim -lossless 0 -q:v 70 -compression_level 5 -loop 0 -an media/hero.webp
+          ffmpeg -y -v error -i in.mp4 -vf "$KEY,scale=900:-2" -frames:v 1 media/hero-poster.png
+          ls -la media
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git add media
+          git commit -m "Vídeo del hero con fondo transparente (WebM + WebP animado)" || echo "sin cambios"
+          git push
